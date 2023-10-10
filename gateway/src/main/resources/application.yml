@@ -1,0 +1,54 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 50000
+        response-timeout: 50000
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - 'http://localhost:3000'
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - PATCH
+              - OPTIONS
+
+
+      routes:
+        - id: user-service # server name
+#          uri: http://localhost:9000 # server ip
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/users/** # root path after gateway path
+        - id: etc-service
+#          uri: http://localhost:9001
+          uri: lb://etc-service
+          predicates:
+            - Path=/api/v1/etc/**
+        - id: community-service
+          uri: lb://community-service
+          predicates:
+            - Path=/api/v1/community/**
+        - id: board-service
+          uri: lb://board-service
+          predicates:
+            - Path=/api/v1/board/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # all managed by eureka

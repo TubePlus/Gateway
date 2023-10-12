@@ -34,20 +34,20 @@ spring:
       routes:
         - id: user-service # server name
 #          uri: http://localhost:9000 # server ip
-          uri: lb://user-service
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/api/v1/users/** # root path after gateway path
         - id: etc-service
 #          uri: http://localhost:9001
-          uri: lb://etc-service
+          uri: lb://ETC-SERVICE
           predicates:
             - Path=/api/v1/etc/**
         - id: community-service
-          uri: lb://community-service
+          uri: lb://COMMUNITY-SERVICE
           predicates:
             - Path=/api/v1/community/**
         - id: board-service
-          uri: lb://board-service
+          uri: lb://BOARD-SERVICE
           predicates:
             - Path=/api/v1/board/**
 eureka:
@@ -55,4 +55,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eurekaimage:8761/eureka/ # all managed by eureka
+      defaultZone: http://localhost:8761/eureka/ # all managed by eureka

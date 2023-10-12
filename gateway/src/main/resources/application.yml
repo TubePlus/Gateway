@@ -14,12 +14,13 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins:
-              - 'http://frontimage:3000'
-              - 'http://localhost:3000'
-              - 'http://34.64.88.166:3000'
-              - 'https://tubeplus.online'
-            allow-credentials: true
+            allowedOrigins: "*"
+#              - 'http://frontimage:3000'
+#              - 'http://localhost:3000'
+#              - 'http://34.64.88.166:3000'
+#              - 'https://tubeplus.online'
+            allow-credentials: false
+#            allow-credentials: true
             allowedHeaders: '*'
             allowedMethods:
               - PUT
@@ -54,4 +55,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eurekaimage:8761/eureka/ # all managed by eureka
+      defaultZone: http://localhost:8761/eureka/ # all managed by eureka

@@ -49,7 +49,9 @@ spring:
         - id: board-service
           uri: lb://BOARD-SERVICE
           predicates:
-            - Path=/api/v1/board/**
+            - Path=/api/v1/boards/**
+            - Path=/api/v1/postings/**
+
 eureka:
   client:
     register-with-eureka: true

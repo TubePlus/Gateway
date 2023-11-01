@@ -51,6 +51,8 @@ spring:
           predicates:
             - Path=/api/v1/boards/**
             - Path=/api/v1/postings/**
+            - Path=/api/v1/comments/**
+            - Path=/api/v1/votes/**
 
 eureka:
   client:

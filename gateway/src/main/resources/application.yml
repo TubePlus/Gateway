@@ -21,14 +21,6 @@ spring:
 #              - 'https://tubeplus.online'
             allow-credentials: false
 #            allow-credentials: true
-            allowedHeaders: '*'
-            allowedMethods:
-              - PUT
-              - GET
-              - POST
-              - DELETE
-              - PATCH
-              - OPTIONS
 
 
       routes:
@@ -59,4 +51,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eurekaimage/eureka/ # all managed by eureka
+      defaultZone: http://localhost:8761/eureka/ # all managed by eureka

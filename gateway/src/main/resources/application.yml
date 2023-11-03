@@ -21,7 +21,14 @@ spring:
 #              - 'https://tubeplus.online'
             allow-credentials: false
 #            allow-credentials: true
-
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - PATCH
+              - OPTIONS
 
       routes:
         - id: user-service # server name

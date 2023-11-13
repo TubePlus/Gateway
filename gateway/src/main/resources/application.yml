@@ -45,8 +45,8 @@ spring:
           uri: lb://COMMUNITY-SERVICE
           predicates:
             - Path=/api/v1/communities/**
-        - id: board-service
-          uri: lb://BOARD-SERVICE
+        - id: boards-service
+          uri: lb://BOARDS-SERVICE
           predicates:
             - Path=/api/v1/boards-my-own-api-to-avoid-same/**
 

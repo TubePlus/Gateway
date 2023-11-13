@@ -31,6 +31,13 @@ public class GatewayApplication {
         corsConfiguration.addAllowedOrigin("https://tubeplus.online");
         corsConfiguration.addAllowedMethod("*");
         corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.addAllowedMethod("PUT");
+        corsConfiguration.addAllowedMethod("GET");
+        corsConfiguration.addAllowedMethod("POST");
+        corsConfiguration.addAllowedMethod("DELETE");
+        corsConfiguration.addAllowedMethod("PATCH");
+        corsConfiguration.addAllowedMethod("OPTIONS");
+
         source.registerCorsConfiguration("/**", corsConfiguration);
 
         return source;

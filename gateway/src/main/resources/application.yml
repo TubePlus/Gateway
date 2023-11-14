@@ -32,12 +32,10 @@ spring:
 
       routes:
         - id: user-service # server name
-          #          uri: http://localhost:9000 # server ip
           uri: lb://USER-SERVICE
           predicates:
             - Path=/api/v1/users/** # root path after gateway path
         - id: etc-service
-          #          uri: http://localhost:9001
           uri: lb://ETC-SERVICE
           predicates:
             - Path=/api/v1/etc/**
@@ -45,10 +43,11 @@ spring:
           uri: lb://COMMUNITY-SERVICE
           predicates:
             - Path=/api/v1/communities/**
-        - id: boards-service
-          uri: lb://BOARDS-SERVICE
+        - id: board-service
+          uri: lb://BOARD-SERVICE
           predicates:
-            - Path=/api/v1/boards-my-own-api-to-avoid-same/**
+            - Path=/api/v1/board-service/**
+
 
 eureka:
   client:

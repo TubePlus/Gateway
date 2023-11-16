@@ -31,6 +31,14 @@ spring:
               - OPTIONS
 
       routes:
+        - id: data-migration-service
+          uri: lb://DATA-MIGRATION-SERVICE
+          predicates:
+            - Path=/api/v1/migration/**
+        - id: board-service
+          uri: lb://BOARD-SERVICE
+          predicates:
+            - Path=/api/v1/board-service/**
         - id: user-service # server name
           uri: lb://USER-SERVICE
           predicates:
@@ -43,10 +51,6 @@ spring:
           uri: lb://COMMUNITY-SERVICE
           predicates:
             - Path=/api/v1/communities/**
-        - id: board-service
-          uri: lb://BOARD-SERVICE
-          predicates:
-            - Path=/api/v1/board-service/**
 
 
 eureka:
@@ -54,4 +58,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eurekaimage:8761/eureka/ # all managed by eureka
+      defaultZone: http://localhost:8761/eureka/ # all managed by eureka

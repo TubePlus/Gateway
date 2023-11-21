@@ -31,14 +31,14 @@ spring:
               - OPTIONS
 
       routes:
+        - id: posting-service
+          uri: lb://POSTING-SERVICE
+          predicates:
+            - Path=/api/v1/board-service/**
         - id: data-migration-service
           uri: lb://DATA-MIGRATION-SERVICE
           predicates:
             - Path=/api/v1/migration/**
-        - id: board-service
-          uri: lb://BOARD-SERVICE
-          predicates:
-            - Path=/api/v1/board-service/**
         - id: user-service # server name
           uri: lb://USER-SERVICE
           predicates:
